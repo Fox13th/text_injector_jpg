@@ -11,7 +11,7 @@ settings = config.get_settings()
 class OCRWork:
     def __init__(self, image_path: str, type_lang_symbols: str):
         self.image_path = image_path
-        self.ocr = PaddleOCR(use_angle_cls=True, lang=type_lang_symbols)
+        self.ocr = PaddleOCR(det_model_dir='.', use_angle_cls=True, lang=type_lang_symbols)
 
     def get_text_from_image(self) -> str:
         result = self.ocr.ocr(self.image_path, cls=True)
